@@ -21,10 +21,10 @@ jobs:
 
       - name: Mirror repository to Hostinger via SFTP
         env:
-          HOST: ${{ secrets.HOSTINGER_SFTP_HOST }}
-          PORT: ${{ secrets.HOSTINGER_SFTP_PORT }}
-          USERNAME: ${{ secrets.HOSTINGER_SFTP_USERNAME }}
-          PASSWORD: ${{ secrets.HOSTINGER_SFTP_PASSWORD }}
+          HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          USERNAME: ${{ secrets.HOSTINGER_SSH_USER }}
+          PASSWORD: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
           REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_PATH }}
         run: |
           lftp -u "$USERNAME,$PASSWORD" sftp://"$HOST":"$PORT" <<EOF
