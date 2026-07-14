@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VELERO Cockpit</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .status-grid { display: grid; gap: 12px; }
+  .row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .ok { color: var(--accent); }
+  .pending { color: var(--text-muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section>
+    <h1>VELERO Cockpit</h1>
+    <p class="lead">Not a dashboard. A status readout to answer one question: what's the next highest-impact action toward the first sale?</p>
+    <p class="price-note"><strong>Note:</strong> this is an unauthenticated static page (a real, known gap, not hidden) — it contains no secrets or customer data, only operational status, and should not be linked from public-facing pages.</p>
+  </section>
+
+  <section>
+    <h2>Launch readiness — DevOps Starter Kit</h2>
+    <div class="status-grid">
+      <div class="row"><span>Product</span><span class="ok">✓ live</span></div>
+      <div class="row"><span>Landing page</span><span class="ok">✓ live — velerohub.com/products/devops-starter-kit/</span></div>
+      <div class="row"><span>Checkout (Stripe)</span><span class="ok">✓ live — verified active</span></div>
+      <div class="row"><span>Delivery</span><span class="ok">✓ ready — zip packaged, manual send on payment</span></div>
+      <div class="row"><span>Production hosting</span><span class="ok">✓ live — Hostinger, auto-deployed from GitHub</span></div>
+      <div class="row"><span>Support / refund inbox</span><span class="pending">○ pending — owner setting up dedicated address</span></div>
+      <div class="row"><span>Analytics (GA4 / Search Console / Clarity)</span><span class="pending">○ pending — needs owner-created accounts</span></div>
+      <div class="row"><span>Distribution</span><span class="pending">○ paused — awaiting go-ahead</span></div>
+      <div class="row"><span>First sale</span><span class="pending">○ not yet</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where to look for real numbers</h2>
+    <p>Revenue, orders, refunds: <a href="https://dashboard.stripe.com">Stripe Dashboard</a>. Deploys: <a href="https://github.com/VELERO-hub/velerohub.com/actions">GitHub Actions</a>. Product source: <a href="https://github.com/VELERO-hub/velero-devops-starter-kit">private repo</a>.</p>
+  </section>
+</main>
+</body>
+</html>
