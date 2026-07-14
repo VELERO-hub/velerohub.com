@@ -1,0 +1,29 @@
+name: Diagnose Hostinger Path
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: List Hostinger directory structure
+        env:
+          HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          USERNAME: ${{ secrets.HOSTINGER_SSH_USER }}
+          PASSWORD: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+        run: |
+          lftp -u "$USERNAME,$PASSWORD" sftp://"$HOST":"$PORT" <<EOF
+          set sftp:auto-confirm yes
+          pwd
+          ls
+          echo "--- domains/ if present ---"
+          ls domains 2>/dev/null || echo "no domains dir"
+          echo "--- public_html/ if present ---"
+          ls public_html 2>/dev/null || echo "no public_html dir"
+          bye
+          EOF
