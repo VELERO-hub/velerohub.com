@@ -19,11 +19,13 @@ jobs:
         run: |
           lftp -u "$USERNAME,$PASSWORD" sftp://"$HOST":"$PORT" <<EOF
           set sftp:auto-confirm yes
-          pwd
-          ls
-          echo "--- domains/ if present ---"
-          ls domains 2>/dev/null || echo "no domains dir"
-          echo "--- public_html/ if present ---"
-          ls public_html 2>/dev/null || echo "no public_html dir"
+          echo "--- domains/ ---"
+          ls domains
+          echo "--- domains/velerohub.com/ ---"
+          ls domains/velerohub.com
+          echo "--- domains/velerohub.com/public_html/ ---"
+          ls domains/velerohub.com/public_html
+          echo "--- root public_html/ ---"
+          ls public_html
           bye
           EOF
